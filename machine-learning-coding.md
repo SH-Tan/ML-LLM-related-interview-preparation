@@ -5,11 +5,7 @@
 - mAP (object detection metric)
 - self attention
 
-### Pinterest MLE Coding Exercises
-
-Source: `Pinterest_MLE_Interview_Questions_and_Answers.md`, Q8-Q14. These are standalone reference solutions; adapt them to the provided interview scaffold.
-
-#### Q8. Coding — find local maxima with a decreasing window.
+### find local maxima with a decreasing window.
 
 **Question.** Given integer array `rawData` and integer `localArea`, return the sorted 0-based indices `i` for which values decrease **strictly** as one moves away from `rawData[i]` up to `localArea` positions to the left and right. At an array boundary, use the available positions only.
 
@@ -50,7 +46,7 @@ if __name__ == "__main__":
 
 **Edge cases.** Equal adjacent values break strict decrease. At index 0 or `n−1`, the missing side is vacuously satisfied, so an endpoint may qualify if its existing side decreases. If `localArea == 0`, every index qualifies.
 
-#### Q9. Coding — add parentheses to minimize an arithmetic expression.
+### add parentheses to minimize an arithmetic expression.
 
 **Question.** Given a string such as `"112+422"` consisting of two positive integers with no zero digits, insert exactly one pair of parentheses. The `+` must be inside, with at least one digit of each operand inside. Adjacent numeric factors multiply. Return the smallest possible integer value.
 
@@ -89,7 +85,7 @@ if __name__ == "__main__":
 
 **Correct minimal placement for `112+422`:** `1(12+42)2 = 108`. The assertion is for that placement. The screenshot also gives `"55+55" → 110` via `(55+55)`.
 
-#### Q10. Coding — implement k-means clustering.
+### implement k-means clustering.
 
 **Question.** Given `data` (list of float feature vectors), `k` initial `centroids`, and `iterations`, repeatedly assign points to their nearest centroid, replace each centroid with its assigned points' mean, and return final integer cluster IDs. Empty clusters are retained at their previous locations in this reference implementation.
 
@@ -147,7 +143,7 @@ if __name__ == "__main__":
 
 **Complexity.** O(`iterations × n × k × d`). The cluster numbers are arbitrary labels; ties in this reference select the lower-index centroid.
 
-#### Q11. Coding — bagging / bootstrap decision trees.
+### bagging / bootstrap decision trees.
 
 **Question.** Given training features/labels, test features, and `n_estimators`, bootstrap a sample of size n **with replacement** for each classifier, fit it, predict the test data, and take a majority vote. On a tie, return the smaller class label. The screenshot requires sampling indices via `randint` and forbids using NumPy for the sampling step.
 
@@ -282,7 +278,7 @@ if __name__ == "__main__":
 
 **Using the provided CodeSignal skeleton:** The recollection specifically mentions filling in `bootstrap()`, `fit()`, and `predict()`. The reference class above separates those methods to match that workflow. Construct or use exactly `n_estimators` supplied base models and call the three methods while preserving the existing code and initial random seed. The sample standalone base learner uses Gini splits and a maximum tree depth of 8; the grader's base learners may differ, so exact labels for unseen inputs are not guaranteed to match that scaffold. The screenshot's model-specific implementation details are incomplete.
 
-#### Q12. Coding — implement a decision tree from scratch.
+### implement a decision tree from scratch.
 
 **Question.** Given `x_train`, `y_train`, and `x_test`, build a classifier whose internal nodes choose a feature/threshold, whose leaves predict a label, and whose splits maximize information gain based on entropy. Return predicted float class labels. No extra third-party libraries are allowed.
 
@@ -412,7 +408,7 @@ if __name__ == "__main__":
 
 **Information gain:** `IG = H(parent) − (n_left/n)H(left) − (n_right/n)H(right)`. Actual grader behavior can depend on its provided stopping, tie-breaking, and split conventions; those details are not fully visible in the screenshots.
 
-#### Q13. Coding — implement gradient descent for linear regression.
+### implement gradient descent for linear regression.
 
 **Question.** Fit `y = b + Σ_j θ_j x_j` using mean squared error, random initial bias and coefficients, batch gradients, and a fixed number of gradient-descent iterations. Return predictions for `x_test`.
 
@@ -484,7 +480,7 @@ if __name__ == "__main__":
 
 **Caution:** The screenshots do not show the full original caller's learning rate or iteration parameters. For exact CodeSignal results use the pre-existing values and preserve its random initialization / seed. Large feature magnitudes can require scaling or a smaller learning rate.
 
-#### Q14. Coding — implement Gaussian Naive Bayes.
+### implement Gaussian Naive Bayes.
 
 **Question.** Complete a `NaiveBayesClassifier` with four missing methods: (1) per-class feature means and variances, (2) class priors, (3) Gaussian density, and (4) class prediction. The screenshot permits NumPy and `numpy.typing`, and its existing `fit` and `predict` call those methods.
 
